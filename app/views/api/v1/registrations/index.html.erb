@@ -1,0 +1,54 @@
+<h1>Listing Registrations</h1>
+<table id="myTable" border="1">
+	<thead>
+		<tr>
+			<th>Sl.No</th>
+			<th>Name</th>
+			<th>No. Of Tickets</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+	window.addEventListener('load', function(){
+		
+		function getRegistrations(){
+			var xhr = XMLHttpRequest();
+			xhr.open('GET', "/api/v1/registrations", true);
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var registrations = JSON.parse(xhr.responseText);
+					var output = "";
+					registrations.forEach(function(registration){
+						var newElement = document.createElement('td');
+						var newText = document.createTextNode(registration.name);
+					});
+				}
+			}
+			xhr.send();
+		}
+		getRegistrations();
+	}, false);
+</script>
+
+<!--<% if @registrations.empty? %>
+	<p>No Registrations Found</p>
+<% else %>
+	<% @registrations.each do |registration| %>
+		<li><p>Name : <%= registration.name %></p>
+		<p>Tickets : <%= registration.no_of_tickets %></p>
+		<p>Total : <%= registration.total %></p>
+		</li>
+	<% end %>
+<% end %> -->
+
+

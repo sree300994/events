@@ -1,0 +1,9 @@
+<%= form_for @registration do |f| %>
+	<label>Name : </label> <br/>
+	<%= f.text_field :name %> <br/>
+
+	<label>No Of Tickets : </label> <br/>
+	<%= f.select :no_of_tickets %>
+
+	<%= f.submit %>
+<% end %>
